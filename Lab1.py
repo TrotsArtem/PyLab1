@@ -1,11 +1,11 @@
 import math
 
 def task1():
-    x = float(input("Enter a number: "))
+    x = float(input("Введіть число: "))
 
     if x > 45:
         z = -math.sqrt(x)
-    elif x <= 45:
+    else:
         z = math.sin(math.radians(2*x))
 
     print(f"Значення z({x}) = ({z})")
@@ -19,23 +19,30 @@ def task2():
     print(f"Перше число Фібоначчі, яке більше за {p}: {b}")
 
 def task3():
-    arr = [12, -4, 7, -8, -15, 0, -2, 9, -6]
+    n = int(input("Введіть кількість елементів масиву: "))
+
+    print(f"Введіть {n} елементів через пробіл або по одному:")
+    arr = []
+    while len(arr) < n:
+        items = input().split()
+        for item in items:
+            if len(arr) < n:
+                arr.append(int(item))
 
     max_element = max(arr)
 
-    negative_elements = [x for x in arr if x < 0]
+    neg_elements = [x for x in arr if x < 0]
 
-    if negative_elements:
-        avg_negative = sum(negative_elements) / len(negative_elements)
+    if neg_elements:
+        avg_neg = sum(neg_elements) / len(neg_elements)
     else:
-        avg_negative = "Від'ємні елементи відсутні"
+        avg_neg = "Від'ємні елементи відсутні"
 
-    even_negatives_reversed = [x for x in arr if x < 0 and x % 2 == 0][::-1]
+    even_neg_rev = [x for x in arr if x < 0 and x % 2 == 0][::-1]
 
-    # Вивід результатів
     print(f"1. Максимальний елемент: {max_element}")
-    print(f"2. Середнє арифметичне від'ємних елементів: {avg_negative}")
-    print(f"3. Парні від'ємні елементи у зворотному порядку: {even_negatives_reversed}")
+    print(f"2. Середнє арифметичне від'ємних елементів: {avg_neg}")
+    print(f"3. Парні від'ємні елементи у зворотному порядку: {even_neg_rev}")
 
 def main_menu():
     while True:
